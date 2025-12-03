@@ -1,0 +1,11 @@
+# My Business Website
+
+This is the official website for ReverseThyme.  
+🌐 Live site: https://github.com/Its-Sabvel/ReverseThyme.git
+
+## Features
+- Responsive design
+- Consultation form
+- Spa Services / Price sheet
+- Blog/news section
+- About Section
