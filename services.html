@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services • ReverseThyme</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Tiny Announcement Bar (same as homepage) -->
+  <div class="announcement-bar" role="region" aria-label="Promotion">
+    <div class="announcement-marquee">
+      <p><strong>Launch Special:</strong> First 10 facials only $75 (normally $135+) • <a href="https://www.vagaro.com/reversethyme" class="announcement-link">Book now →</a></p>
+      <p aria-hidden="true"><strong>Launch Special:</strong> First 10 facials only $75 (normally $135+) • <a href="https://www.vagaro.com/reversethyme" class="announcement-link">Book now →</a></p>
+    </div>
+  </div>
+
+  <!-- Sticky Nav -->
+  <nav aria-label="Main navigation">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="services.html">Services</a>
+  <a href="https://www.vagaro.com/" target="_blank" rel="noopener">Book</a>
+</nav>
+
+  <!--Page header Services -->
+  <header style="padding: 4vh 5px 3vh;">
+    <img src="logo.png" alt="ReverseThyme thyme circle logo" class="logo">
+    <h1>Services</h1>
+    <p class="tagline">Subscriptions</p>
+  </header>
+
+    <p class="large-text">Customized facials based on skin biome and current health.</p>
+
+    <p style="max-width:720px; margin:2rem auto; font-size:1.25rem;">
+      Basic - $60
+    </p>
+
+    <p style="max-width:720px; margin:2.5rem auto; font-size:1.35rem; font-weight:600; color:var(--thyme-green);">
+      Ready to turn back thyme on your skin?<br>
+      <a href="https://www.vagaro.com/reversethyme" class="button" style="margin-top:1.5rem;">Book Service →</a>
+    </p>
+  </main>
+
+  <!-- Thyme divider -->
+  <div class="herbal-divider">
+    <img src="logo.png" alt="" class="divider-logo">
+  </div>
+
+  <footer>
+    <p>© 2025 ReverseThyme • All rights reserved • hello@reversethyme.com</p>
+  </footer>
+
+  <!-- Sticky nav blur effect (same as homepage) -->
+  <script>
+    window.addEventListener('scroll', function() {
+      const nav = document.querySelector('nav');
+      if (window.scrollY > 50) nav.classList.add('scrolled');
+      else nav.classList.remove('scrolled');
+    });
+  </script>
+<script>
+  // Highlights the current page in the nav
+  document.querySelectorAll('nav a').forEach(link => {
+    if (link.href === window.location.href) {
+      link.style.fontWeight = '900';
+      link.style.textDecoration = 'none';
+    }
+  });
+</script>
+
+</body>
+</html>

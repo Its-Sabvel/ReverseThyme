@@ -1,0 +1,115 @@
+/* ReverseThyme – Final 2025 CSS (elderly-friendly, sticky nav, tiny bar) */
+:root {
+  --thyme-green:     #5F6F65;
+  --sage-soft:       #A8B5A2;
+  --rosemary:        #7B9A7E;
+  --parsley:         #8BAC6F;
+  --lavender:        #C7C4E1;
+  --charcoal:        #0d0d0d;
+}
+
+/* Reset */
+* { margin:0; padding:0; box-sizing:border-box; }
+
+/* Body – high contrast */
+body {
+  background: #e8e3d9;
+  color: var(--charcoal);
+  font-family: 'Crimson Text', Georgia, serif;
+  font-size: 18px;
+  line-height: 1.7;
+  letter-spacing: 0.4px;
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Tiny announcement bar – slow & spacious */
+.announcement-bar {
+  background: #000000;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  overflow: hidden;
+  padding: 8px 0;
+  line-height: 1.4;
+}
+.announcement-marquee {
+  display: inline-block;
+  white-space: nowrap;
+  animation: marquee 48s linear infinite;
+  padding-left: 100%;
+}
+.announcement-marquee p {
+  display: inline-block;
+  padding: 0 120px;
+  margin: 0;
+}
+.announcement-link { color: #e8f5e8; font-weight: 600; text-decoration: underline; }
+.announcement-link:hover { color: white; }
+.announcement-bar:hover .announcement-marquee { animation-play-state: paused; }
+@keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
+
+/* Sticky Navigation – luxe blur on scroll */
+nav {
+  padding: 1.2rem 0;
+  background: var(--thyme-green);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  transition: background 0.3s, -webkit-backdrop-filter 0.3s, backdrop-filter 0.3s;
+}
+
+nav.scrolled {
+  background: rgba(95, 111, 101, 0.38);
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+}
+
+nav a {
+  color: white;
+  margin: 0 2rem;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+nav a:hover { text-decoration: underline; }
+
+/* Header */
+header { padding: 15vh 20px 5vh; }
+.logo { width: 280px; max-width: 90vw; margin-bottom: 2rem; }
+h1 { font-family: 'Libre Baskerville', serif; font-size: 4.8rem; color: var(--charcoal); font-weight: 700; }
+.tagline { font-size: 1.5rem; color: var(--charcoal); margin: 1.5rem 0 3rem; font-weight: 500; }
+
+/* Sections & Dividers */
+.herbal-section { padding: 5rem 2rem; max-width: 900px; margin: 0 auto; }
+.large-text { font-size: 2.1rem; color: var(--charcoal); margin: 1.5rem 0; font-weight: 600; }
+h2 { font-family: 'Libre Baskerville', serif; font-size: 2.8rem; color: var(--charcoal); margin-bottom: 1.5rem; font-weight: 700; }
+
+/* Thyme-circle divider */
+.herbal-divider { display: flex; align-items: center; justify-content: center; margin: 5rem 0; }
+.herbal-divider::before, .herbal-divider::after { content: ''; flex: 1; height: 1px; background: var(--sage-soft); }
+.divider-logo { width: 90px; margin: 0 2.5rem; opacity: 0.8; }
+
+/* Button */
+.button {
+  display: inline-block;
+  background: var(--thyme-green);
+  color: white;
+  padding: 1.3rem 3rem;
+  margin: 2.5rem 0;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.4rem;
+}
+.button:hover { background: var(--rosemary); }
+
+/* Email & Footer */
+.email { font-size: 1.4rem; margin-top: 2.5rem; }
+.email a { color: var(--charcoal); text-decoration: none; font-weight: 600; }
+footer { padding: 4rem; font-size: 1rem; color: #333; margin-top: auto; font-weight: 500; }

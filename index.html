@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>ReverseThyme | Rejuvenating High-Altitude Skin</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  footer {
+  background-color: #777;
+  padding: 10px;
+  color: white;
+}
+</style>
+</head>
+
+<body>
+    <!-- Announcement Bar -->
+<div class="announcement-bar" role="region" aria-label="Promotion">
+  <div class="announcement-marquee">
+    <p>
+      <strong>Launch Special:</strong> First 3 facials only $60 (normally $125+) • 
+      <a href="https://www.vagaro.com/reversethyme" class="announcement-link">
+        Book now before spots are filled →
+      </a>
+    </p>
+    <!-- Duplicate for seamless loop -->
+    <p aria-hidden="true">
+      <strong>Launch Special:</strong> First 3 facials $60 (normally $125+) • 
+      <a href="https://www.vagaro.com/reversethyme" class="announcement-link">
+        Book now before spots are filled →
+      </a>
+    </p>
+  </div>
+</div>
+
+<!-- Primary navigation -->
+  <nav aria-label="Main navigation">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="services.html">Services</a>
+  <a href="https://www.vagaro.com/" target="_blank" rel="noopener">Book</a>
+</nav>
+
+  <!-- Page header with branding -->
+  <header style="padding: 4vh 5px 3vh;">
+    <img src="logo.png" alt="ReverseThyme thyme circle logo" class="logo">
+    <h1>ReverseThyme</h1>
+    <p class="tagline">Herbal facials that turn back thyme on sun-damaged skin</p>
+  </header>
+
+  <!-- Main content area -->
+  <main>
+  <!-- Services -->
+  <section id="services" class="herbal-section">
+    <h2>Services</h2>
+    <p class="large-text">30-minute herbal facials for high-altitude skin</p>
+    <p>Opening December • Briargate • Colorado Springs</p>
+  </section>
+
+  <!-- Herbal divider -->
+  <div class="herbal-divider">
+    <img src="logo.png" alt="" class="divider-logo">
+  </div>
+
+  <!-- About -->
+  <section id="about" class="herbal-section">
+    <h2>About ReverseThyme</h2>
+    <p>Licensed esthetician Emma Mendez brings Scarborough Fair-inspired herbal rituals to reverse Colorado sun damage.</p>
+  </section>
+
+  <!-- Herbal divider -->
+  <div class="herbal-divider">
+    <img src="logo.png" alt="" class="divider-logo">
+  </div>
+
+  <!-- Book -->
+  <section id="book" class="herbal-section">
+    <h2>Book Your Launch Facial</h2>
+    <p class="large-text">First 3 bookings → $60 special (normally $125+)</p>
+    <a href="https://www.vagaro.com/reversethyme" class="button" target="_blank" rel="noopener">
+      Book Now →
+    </a>
+    <p class="email"><a href="mailto:hello@reversethyme.com">hello@reversethyme.com</a></p>
+  </section>
+</main>
+
+  <!-- Page footer -->
+  <footer>
+    <p>© <time datetime="2025">2025</time>, ReverseThyme • All rights reserved</p>
+  </footer>
+
+<!-- Sticky nav blur effect (same as homepage) -->
+  <script>
+    window.addEventListener('scroll', function() {
+      const nav = document.querySelector('nav');
+      if (window.scrollY > 50) nav.classList.add('scrolled');
+      else nav.classList.remove('scrolled');
+    });
+  </script>
+
+<script>
+  // Highlights the current page in the nav
+  document.querySelectorAll('nav a').forEach(link => {
+    if (link.href === window.location.href) {
+      link.style.fontWeight = '900';
+      link.style.textDecoration = 'none';
+    }
+  });
+</script>
+
+</body>
+</html>
