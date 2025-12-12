@@ -130,3 +130,61 @@ h2 { font-family: 'Libre Baskerville', serif; font-size: 2.8rem; color: var(--ch
 .email { font-size: 1.4rem; margin-top: 2.5rem; }
 .email a { color: var(--charcoal); text-decoration: none; font-weight: 600; }
 footer { padding: 4rem; font-size: 1rem; color: #333; margin-top: auto; font-weight: 500; }
+
+/* Media queries – aligned with W3Schools for responsive scaling, centering, and grid-like stacking */
+@media screen and (max-width: 768px) { /* Tablets/mobiles: Adjust for vertical flow per W3Schools breakpoints */
+  header {
+    text-align: center; /* Centers text and inline elements intuitively */
+  }
+  .logo {
+    margin: 0 auto; /* Centers the logo as a block, following responsive image rules */
+    width: 70vw; /* Scales proportionally with viewport units for serene adaptability */
+  }
+  nav {
+    display: flex; /* Uses flexible grid for even distribution without blanks */
+    justify-content: center; /* Centers links, eliminating left-column bias */
+    flex-wrap: wrap; /* Allows wrapping per W3Schools media query examples */
+    padding: 1rem 0;
+  }
+  nav a {
+    margin: 0.5rem 1rem; /* Balanced spacing for mobile taps, appealing to efficiency */
+    font-size: 1.1rem; /* Slight scale for readability across ages */
+  }
+  .announcement-bar {
+    padding: 6px 0; /* Compact to fit narrow viewports without overflow */
+  }
+  .announcement-marquee {
+    padding-left: 0; /* Removes shift for centered, full-width feel */
+    text-align: center; /* Aligns content per typography best practices */
+    white-space: normal; /* Enables wrapping to avoid faux columns on small screens */
+  }
+  .announcement-marquee p {
+    padding: 0 40px; /* Tighter for balanced mobile display */
+    display: block; /* Stacks duplicates vertically if needed */
+  }
+  .herbal-section, .herbal-divider {
+    max-width: 100%; /* Full-width for seamless stacking, like W3Schools' percentage grids */
+  }
+}
+
+@media screen and (max-width: 480px) { /* Small phones: Stack for ultimate mobile-friendliness */
+  body {
+    font-size: 16px; /* Viewport-relative base for comfort and SEO accessibility */
+  }
+  nav {
+    flex-direction: column; /* Vertical stacking per W3Schools layout rules, banishing blank columns */
+    align-items: center; /* Centers everything */
+  }
+  nav a {
+    margin: 0.6rem 0; /* Vertical margins for easy, intuitive navigation */
+  }
+  .announcement-marquee {
+    animation-duration: 30s; /* Faster for quick mobile views */
+  }
+  .announcement-marquee p {
+    padding: 0 20px; /* Even more compact to fit tiny screens without blanks */
+  }
+  .logo {
+    width: 80vw; /* Larger relative scale for visibility without zoom */
+  }
+}
