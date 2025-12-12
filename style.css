@@ -11,20 +11,37 @@
 /* Reset */
 * { margin:0; padding:0; box-sizing:border-box; }
 
-/* Body – high contrast */
+/* Body – high contrast enhancements for serene resets and mobile readability */
 body {
+  margin: 0;
+  padding: 0;
   background: #e8e3d9;
   color: var(--charcoal);
-  font-family: 'Crimson Text', Georgia, serif;
+  font-family: 'Crimson Text', 'Arial', sans-serif;
   font-size: 18px;
-  line-height: 1.7;
+  line-height: 1.6;
   letter-spacing: 0.4px;
   text-align: center;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
-
+header, main, footer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+  }
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+  /* Simple flex for sections (services or blog) – apply this class to .herbal-section divs for wrap-around flow */
+.container { 
+  display: flex; 
+  flex-wrap: wrap;
+  justify-content: space-around; 
+}
 /* Tiny announcement bar – slow & spacious */
 .announcement-bar {
   background: #000000;
