@@ -18,7 +18,8 @@ body {
   background: #e8e3d9;
   color: var(--charcoal);
   font-family: 'Crimson Text', 'Arial', sans-serif;
-  font-size: 18px;
+  /* Responsive base font-size */
+  font-size: clamp(16px, 1.2vw + 14px, 20px);
   line-height: 1.6;
   letter-spacing: 0.4px;
   text-align: center;
@@ -56,8 +57,9 @@ img {
 .announcement-marquee {
   display: inline-block;
   white-space: nowrap;
-  animation: marquee 48s linear infinite;
-  padding-left: 100%;
+  /* slide from right to left; single element will re-enter the viewport */
+  animation: marquee 28s linear infinite;
+  will-change: transform;
 }
 .announcement-marquee p {
   display: inline-block;
@@ -67,7 +69,33 @@ img {
 .announcement-link { color: #e8f5e8; font-weight: 600; text-decoration: underline; }
 .announcement-link:hover { color: white; }
 .announcement-bar:hover .announcement-marquee { animation-play-state: paused; }
-@keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
+@keyframes marquee {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+/* Accessibility: skip link (visually hidden, becomes visible on focus) */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.skip-link:focus,
+.skip-link:active {
+  left: 1rem;
+  top: 1rem;
+  width: auto;
+  height: auto;
+  padding: 0.5rem 0.75rem;
+  background: white;
+  color: var(--charcoal);
+  border-radius: 4px;
+  z-index: 2000;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
 
 /* Sticky Navigation – luxe blur on scroll */
 nav {
@@ -78,6 +106,10 @@ nav {
   z-index: 1000;
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
   transition: background 0.3s, -webkit-backdrop-filter 0.3s, backdrop-filter 0.3s;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
 }
 
 nav.scrolled {
@@ -89,17 +121,29 @@ nav.scrolled {
 
 nav a {
   color: white;
-  margin: 0 2rem;
+  margin: 0;
   text-decoration: none;
   font-weight: 600;
   font-size: 1.2rem;
+  display: inline-block;
+  /* touch target: ensure at least ~44px height */
+  padding: 0.6rem 0.75rem;
+  border-radius: 6px;
 }
 nav a:hover { text-decoration: underline; }
+
+/* Visible focus outlines for keyboard users */
+nav a:focus-visible,
+.button:focus-visible,
+.announcement-link:focus-visible {
+  outline: 3px solid var(--parsley);
+  outline-offset: 3px;
+}
 
 /* Header */
 header { padding: 15vh 20px 5vh; }
 .logo { width: 280px; max-width: 90vw; margin-bottom: 2rem; }
-h1 { font-family: 'Libre Baskerville', serif; font-size: 4.8rem; color: var(--charcoal); font-weight: 700; }
+h1 { font-family: 'Libre Baskerville', serif; font-size: clamp(2.4rem, 4vw, 4.8rem); color: var(--charcoal); font-weight: 700; }
 .tagline { font-size: 1.5rem; color: var(--charcoal); margin: 1.5rem 0 3rem; font-weight: 500; }
 
 /* Sections & Dividers */
@@ -157,6 +201,7 @@ footer { padding: 4rem; font-size: 1rem; color: #333; margin-top: auto; font-wei
     padding-left: 0; /* Removes shift for centered, full-width feel */
     text-align: center; /* Aligns content per typography best practices */
     white-space: normal; /* Enables wrapping to avoid faux columns on small screens */
+    animation: none; /* disable motion on smaller devices for accessibility */
   }
   .announcement-marquee p {
     padding: 0 40px; /* Tighter for balanced mobile display */
@@ -186,5 +231,13 @@ footer { padding: 4rem; font-size: 1rem; color: #333; margin-top: auto; font-wei
   }
   .logo {
     width: 80vw; /* Larger relative scale for visibility without zoom */
+  }
+}
+
+/* Respect user preference for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .announcement-marquee {
+    animation: none !important;
+    transition: none !important;
   }
 }
