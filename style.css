@@ -58,7 +58,8 @@ img {
   display: inline-block;
   white-space: nowrap;
   /* slide from right to left; single element will re-enter the viewport */
-  animation: marquee 28s linear infinite;
+  /* Increased duration for a slower, gentler scroll */
+  animation: marquee 60s linear infinite;
   will-change: transform;
 }
 .announcement-marquee p {
