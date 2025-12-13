@@ -37,17 +37,24 @@
   </div>
 </div>
 
-<!-- Primary navigation -->
+<!-- Primary navigation with accessible hamburger for small screens -->
   <nav aria-label="Main navigation">
-  <a href="index.html">Home</a>
-  <a href="about.html">About</a>
-  <a href="services.html">Services</a>
-  <a href="https://www.vagaro.com/" target="_blank" rel="noopener">Book</a>
-</nav>
+    <div class="nav-inner">
+      <button class="nav-toggle" aria-controls="nav-menu" aria-expanded="false" aria-label="Open main menu">
+        <span class="hamburger" aria-hidden="true"><span></span><span></span><span></span></span>
+      </button>
+      <div id="nav-menu" class="nav-menu">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="https://www.vagaro.com/" target="_blank" rel="noopener">Book</a>
+      </div>
+    </div>
+  </nav>
 
   <!-- Page header with branding -->
   <header style="padding: 4vh 5px 3vh;">
-    <img src="" alt="ReverseThyme thyme circle logo" class="logo">
+    <img src="ReverseThymeLogoBrand.png" alt="ReverseThyme thyme circle logo" class="logo">
     <h1>ReverseThyme</h1>
     <p class="tagline">Herbal facials that turn back thyme on sun-damaged skin</p>
   </header>
@@ -63,7 +70,7 @@
 
   <!-- Herbal divider -->
   <div class="herbal-divider">
-    <img src="ReverseThymeLogo.png" alt="" class="divider-logo">
+    <img src="ReverseThymeLogoBrand.png" alt="" class="divider-logo">
   </div>
 
   <!-- About -->
@@ -74,7 +81,7 @@
 
   <!-- Herbal divider -->
   <div class="herbal-divider">
-    <img src="ReverseThymeLogo.png" alt="" class="divider-logo">
+    <img src="ReverseThymeLogoBrand.png" alt="" class="divider-logo">
   </div>
 
   <!-- Book -->
@@ -102,13 +109,29 @@
     });
   </script>
 
+  <script>
+    // Toggle mobile nav
+    (function(){
+      const toggle = document.querySelector('.nav-toggle');
+      const menu = document.getElementById('nav-menu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', () => {
+          const isOpen = menu.classList.toggle('open');
+          toggle.setAttribute('aria-expanded', String(isOpen));
+        });
+      }
+    })();
+  </script>
+
 <script>
-  // Highlights the current page in the nav
-  document.querySelectorAll('nav a').forEach(link => {
-    if (link.href === window.location.href) {
-      link.style.fontWeight = '900';
-      link.style.textDecoration = 'none';
-    }
+  // Highlights the current page in the nav (works with #nav-menu links)
+  document.querySelectorAll('#nav-menu a').forEach(link => {
+    try {
+      if (link.href === window.location.href) {
+        link.style.fontWeight = '900';
+        link.style.textDecoration = 'none';
+      }
+    } catch (e) { /* ignore */ }
   });
 </script>
 
