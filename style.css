@@ -6,13 +6,17 @@
   --parsley:         #8BAC6F;
   --lavender:        #C7C4E1;
   --charcoal:        #0d0d0d;
-}
-
-/* Reset */
-* { margin:0; padding:0; box-sizing:border-box; }
-
-/* Body – high contrast enhancements for serene resets and mobile readability */
-body {
+  .announcement-marquee {
+    padding-left: 0;
+    text-align: center;
+    /* Keep nowrap so the marquee stays on one line on mobile */
+    white-space: nowrap;
+    /* shorter duration for mobile viewports */
+    animation: marquee 40s linear infinite;
+    will-change: transform;
+    /* start slightly into the container so message appears sooner */
+    transform: translateX(25%);
+  }
   margin: 0;
   padding: 0;
   background: #e8e3d9;
@@ -61,6 +65,8 @@ img {
   /* Increased duration for a slower, gentler scroll */
   animation: marquee 60s linear infinite;
   will-change: transform;
+  /* start visually shifted so the message appears near center initially */
+  transform: translateX(50%);
 }
 .announcement-marquee p {
   display: inline-block;
@@ -71,8 +77,10 @@ img {
 .announcement-link:hover { color: white; }
 .announcement-bar:hover .announcement-marquee { animation-play-state: paused; }
 @keyframes marquee {
-  0% { transform: translateX(100%); }
-  100% { transform: translateX(-100%); }
+  /* Start shifted so the first message begins near the center of the bar,
+     then sweep left past the second (cloned) message for a seamless loop. */
+  0%   { transform: translateX(50%); }
+  100% { transform: translateX(-150%); }
 }
 
 /* Accessibility: skip link (visually hidden, becomes visible on focus) */
@@ -203,6 +211,7 @@ footer { padding: 4rem; font-size: 1rem; color: #333; margin-top: auto; font-wei
     text-align: center; /* Aligns content per typography best practices */
     white-space: normal; /* Enables wrapping to avoid faux columns on small screens */
     animation: none; /* disable motion on smaller devices for accessibility */
+    transform: none; /* ensure static centered layout on small screens */
   }
   .announcement-marquee p {
     padding: 0 40px; /* Tighter for balanced mobile display */
